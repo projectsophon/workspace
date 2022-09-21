@@ -1,3 +1,3 @@
-const workspace = require("../../../../");
+const { workspace } = require("../../../../");
 
 module.exports = workspace("baz");

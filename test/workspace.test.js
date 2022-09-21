@@ -16,4 +16,12 @@ describe("@projectsophon/workspace", function () {
     const result = require("./fixtures/project-one/bar/index.js");
     assert.equal(result, undefined);
   });
+
+  it("can get all workspaces", function () {
+    const result = require("./fixtures/project-one/all/index.js");
+    assert.equal(result.size, 3);
+    assert.exists(result.get("foo"));
+    assert.exists(result.get("bar"));
+    assert.exists(result.get("all"));
+  });
 });

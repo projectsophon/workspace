@@ -5,9 +5,18 @@ const findup = require("findup-sync");
 
 /**
  * @param {string} name The workspace name to query for location
- * @return {string | undefined } The directory path to the workspace if it exists
- * */
+ * @return {string | undefined} The directory path to the workspace if it exists
+ **/
 function workspace(name) {
+  const packages = all();
+
+  return packages.get(name);
+}
+
+/**
+ * @return {Map<string, string>} A map of all workspaces to filesystem paths
+ **/
+function all() {
   const callerPath = getCallerPath();
   // If we can't get a callerPath, just assume the root is `cwd`
   const searchPath = callerPath ? path.dirname(callerPath) : process.cwd();
@@ -20,7 +29,7 @@ function workspace(name) {
 
   const packages = mapWorkspaces.virtual({ cwd: lockfileRoot, lockfile });
 
-  return packages.get(name);
+  return packages;
 }
 
-module.exports = workspace;
+module.exports = { all, workspace };

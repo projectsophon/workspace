@@ -1,6 +1,7 @@
 {
   "workspaces": [
     "foo",
-    "bar"
+    "bar",
+    "all"
   ]
 }
