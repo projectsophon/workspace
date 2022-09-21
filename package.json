@@ -49,6 +49,9 @@
   "eslintConfig": {
     "extends": "@projectsophon/eslint-config"
   },
+  "publishConfig": {
+    "access": "public"
+  },
   "keywords": [
     "npm",
     "workspaces",
